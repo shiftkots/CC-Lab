@@ -4,7 +4,7 @@ int a;
 int Pro;
 
 void setup(){
-  size(300, 300);
+  size(256, 256);
   myImage1 = loadImage("Mario.gif");
   background(0);
   a = 40;
