@@ -10,6 +10,8 @@ long safeZone = 12.5;
  
 //LED pin numbers
 int greenLed = 3, redLed = 2;
+int greenState = LOW;
+int redState = LOW;
 
 //Buzzer pin number
 int tonePin = 4;
@@ -17,12 +19,13 @@ int proximity = 0;
 int distance;
 
 int buttonPin = 8;
-int buttonState1;
-int buttonState2;
+
+int buttonPushCounter = 0; 
+int buttonState = 0; 
+int lastButtonState = LOW;
 
 void setup() {
   // initialize serial communication
-  buttonState1 = digitalRead(buttonPin);
   Serial.begin(9600);
 }
 
@@ -62,17 +65,29 @@ void loop()
 
   //checking if anything is within the safezone, if not, keep
   //green LED on if safezone violated, activate red LED instead
-  buttonState2 = digitalRead(buttonPin);
-  if (buttonState2 != buttonState1){
+  buttonState = digitalRead(buttonPin);
+  if (buttonState != lastButtonState) {
+    if (buttonState == HIGH) {
+      buttonPushCounter++;
+    }
+  }
+  
+  if (buttonPushCounter % 2 == 0){
+    greenState = LOW;
+    redState = LOW;
+    digitalWrite(tonePin, LOW);
+  }
+  else
+  {
     if (cm > safeZone)
     {
-      digitalWrite(greenLed, HIGH);
-      digitalWrite(redLed, LOW);
+      greenState = HIGH;
+      redState = LOW;
     }
     else
     {
-      digitalWrite(redLed, HIGH);
-      digitalWrite(greenLed, LOW); 
+      redState = HIGH;
+      greenState = LOW;
     }
     delay(100);
 
@@ -85,12 +100,8 @@ void loop()
     delay(200);
     noTone(tonePin);
   }
-  else
-  {
-    digitalWrite(greenLed, LOW);
-    digitalWrite(redLed, LOW);
-    digitalWrite(tonePin, LOW);
-  }
+  digitalWrite(greenLed, greenState);
+  digitalWrite(redLed, redState);
 }
 
 long microsecondsToCentimeters(long microseconds)
