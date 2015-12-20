@@ -1,0 +1,324 @@
+@charset "UTF-8";
+/*
+   Compiling this file:
+
+   1. Launch The Terminal.
+   2. Navigate to the “web-app” folder, which is the parent folder of the “sass” folder, which, in turn, is the parent of this document.
+   3. Copy the following command, including backslashes, and paste it into your terminal.
+
+sass \
+--unix-newlines \
+--style expanded \
+--watch sass/style.scss:css/style.css
+
+   To stop Sass, type the key sequence “cntrl + C”.
+
+   IMPORTANT NOTE: Any CSS-related edits must be carried out via Sass; DO NOT edit the CSS document.
+*/
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+body {
+  background: linear-gradient(#193441, #D1DBBD);
+  background-repeat: no-repeat;
+  font: 1rem "Raleway", sans-serif;
+  margin: 0 auto;
+  background-size: 100% 100%;
+}
+
+.weather {
+  z-index: 150;
+  width: 200px;
+  height: 40px;
+  position: fixed;
+  top: 58px;
+  right: 37px;
+  display: inline;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.temperature {
+  z-index: 150;
+  width: 200px;
+  height: 40px;
+  position: fixed;
+  top: 37px;
+  right: 37px;
+  display: inline;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.hello {
+  z-index: 200;
+  margin: 25px auto;
+  width: 600px;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 1.5em;
+  letter-spacing: 5px;
+  font-variant-caps: all-small-caps;
+  text-transform: lowercase;
+}
+
+.hello:before, .hello:after {
+  content: "—";
+}
+
+@keyframes cityMove {
+  0% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: 5px;
+  }
+}
+.city {
+  width: 1000px;
+  margin: 0px auto;
+  padding: 0px 0;
+  animation: cityMove 3s infinite alternate;
+}
+
+@keyframes cloudMoveo {
+  0% {
+    left: 30vw;
+    top: 20vh;
+  }
+  100% {
+    left: 32vw;
+    top: 20vh;
+  }
+}
+.cloud1 {
+  z-index: 100;
+  top: 20vh;
+  left: 0px;
+  position: absolute;
+  animation: cloudMoveo 3s infinite alternate;
+}
+
+@keyframes cloudMovet {
+  0% {
+    left: 7vw;
+    top: -12vh;
+  }
+  100% {
+    left: 7vw;
+    top: -10vh;
+  }
+}
+.cloud2 {
+  z-index: 100;
+  top: 0vh;
+  left: 0px;
+  position: absolute;
+  animation: cloudMovet 3s infinite alternate;
+}
+
+@keyframes cloudMoveh {
+  0% {
+    left: 24vw;
+    top: 24vh;
+  }
+  100% {
+    left: 26vw;
+    top: 24vh;
+  }
+}
+.cloud3 {
+  z-index: 100;
+  top: 20vh;
+  left: 0px;
+  position: absolute;
+  animation: cloudMoveh 3s infinite alternate;
+}
+
+.input {
+  position: relative;
+  margin: 20px auto;
+  z-index: 80;
+  height: 40px;
+  width: 500px;
+}
+
+.currentLocation {
+  display: inline;
+}
+
+.searchCity {
+  background-color: white;
+  border-radius: 20px;
+  border: solid 2px white;
+  color: #969696;
+  margin-top: 0;
+  margin-left: 90px;
+  padding: 5px;
+  height: 20px;
+  width: 300px;
+  font-size: 15px;
+  transition: border 0.3s;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.searchCity:focus,
+.searchCity.focus {
+  outline: none;
+  background-color: white;
+  border: solid 2px rgba(150, 150, 150, 0.25);
+  color: #323232;
+}
+
+#submit {
+  height: 36px;
+  position: relative;
+  top: 12px;
+  left: 2px;
+}
+
+#submit:focus {
+  outline: none;
+}
+
+@keyframes cityMove {
+  0% {
+    top: 0vh;
+  }
+  100% {
+    top: 2vh;
+  }
+}
+input, textarea {
+  font-family: "Raleway", sans-serif;
+}
+
+.logo {
+  width: 1000px;
+  margin: 180px auto;
+}
+
+.choose p {
+  width: 200px;
+  height: 40px;
+  position: fixed;
+  top: 58px;
+  right: 37px;
+  display: inline;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.65);
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.choose p a {
+  color: rgba(0, 0, 0, 0.65);
+  text-decoration: none;
+}
+
+.choose p a:hover {
+  color: rgba(200, 200, 200, 0.5);
+}
+
+.loreg {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  margin: -100px auto;
+}
+
+.usn {
+  display: table;
+  background-color: white;
+  border-radius: 20px;
+  border: solid 2px white;
+  color: #969696;
+  margin: 5px auto;
+  padding: 5px;
+  height: 20px;
+  width: 300px;
+  font-size: 15px;
+  transition: border 0.3s;
+  text-align: center;
+}
+
+.usn:focus,
+.usn.focus {
+  outline: none;
+  background-color: white;
+  border: solid 2px rgba(150, 150, 150, 0.25);
+  color: #323232;
+}
+
+.psw {
+  display: table;
+  background-color: white;
+  border-radius: 20px;
+  border: solid 2px white;
+  color: #969696;
+  margin: 15px auto;
+  padding: 5px;
+  height: 20px;
+  width: 300px;
+  font-size: 15px;
+  transition: border 0.3s;
+  text-align: center;
+}
+
+.psw:focus,
+.psw.focus {
+  outline: none;
+  background-color: white;
+  border: solid 2px rgba(150, 150, 150, 0.25);
+  color: #323232;
+}
+
+.solo {
+  display: table;
+  margin: 0 auto;
+}
+
+.button {
+  background-color: #ff9600;
+  border-radius: 20px;
+  border: solid 2px #ff9600;
+  color: white;
+  margin-top: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2px;
+  height: 30px;
+  width: 100px;
+  font-size: 15px;
+  transition: border 0.3s;
+}
+
+.button:focus,
+.button.focus {
+  outline: none;
+}
+
+.button:hover {
+  background-color: #ff6432;
+}
+
+.logout {
+  margin: 10px;
+  padding: 20px;
+}
+
+.logout p {
+  text-align: center;
+}
+
+.logout p a {
+  color: #193441;
+  text-decoration: none;
+}
+
+.logout p a:hover {
+  color: rgba(50, 50, 50, 0.5);
+}
